@@ -1,0 +1,18 @@
+# Ignore local environment folders
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Ignore raw data and heavy outputs
+data/
+results/
+configs/
+*.csv
+*.png
+*.jpg
+*.ply
+
+# OS specific files
+.DS_Store
+Thumbs.db

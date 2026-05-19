@@ -1,0 +1,17 @@
+# Core Computer Vision & Math
+numpy
+opencv-python
+scipy
+
+# Deep Learning (AI Models)
+torch
+torchvision
+
+# 3D Data & Visualization
+open3d
+matplotlib
+
+# Utilities & Configuration
+pyyaml
+tqdm
+scikit-learn
