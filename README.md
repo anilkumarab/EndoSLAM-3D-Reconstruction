@@ -4,6 +4,31 @@ A modular, memory-efficient 3D computer vision and spatial registration pipeline
 
 ---
 
+## 📂 Repository Structure
+
+```text
+EndoSLAM-3D-Reconstruction/
+│
+├── scripts/
+│   └── batch_reconstruct.py     # Master execution orchestrator loop
+│
+├── src/
+│   ├── __init__.py
+│   ├── preprocessing/
+│   │   ├── __init__.py
+│   │   └── camera_model.py      # Camera intrinsics & pinhole geometry mapping
+│   │
+│   └── reconstruction/
+│       ├── __init__.py
+│       ├── point_cloud.py       # Metric conversion, filtering & downsampling
+│       └── stitching.py         # Rigid body transformations & registration
+│
+├── .gitignore                   # Safe data exclusion rules
+├── README.md                    # System architecture documentation
+└── requirements.txt             # Explicit package dependency versions
+
+---
+
 ## 🛠️ Software Architecture & Modules
 
 To maintain a clean separation of concerns and high modularity, the codebase is split into specialized engineering modules:
@@ -36,6 +61,23 @@ To maintain a clean separation of concerns and high modularity, the codebase is 
 * Python 3.8+
 * Open3D, NumPy, SciPy
 
-```bash
-# Execute the pipeline execution loop
+### Dataset Acquisition
+This pipeline is validated using the synthetic colon sequences from the official **EndoSLAM dataset**. To run this pipeline locally:
+
+1. Download the raw trajectory logs and synchronized RGB-D frame sequences from the official repository: [EndoSLAM GitHub / Dataset Link](https://github.com/BBMILAB/EndoSLAM).
+2. Extract the contents and structure your local project directory as follows to match the data loading pathways:
+   ```text
+   EndoSLAM/
+   ├── scripts/
+   ├── src/
+   └── data/
+       └── UnityCam/
+           └── Colon/
+               ├── Depth/
+               ├── Frames/
+               └── poses/
+    ```
+
+### Running the Pipeline
+To execute the processing and batch generation sequence, run:
 python -m scripts.batch_reconstruct
